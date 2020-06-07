@@ -29,7 +29,7 @@ def updateprofile(request):
         profile_form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
-        'user_form':user_form
+        'user_form':user_form,
         'profile_form':profile_form,
         'posts':posts,
         'projects':projects,
@@ -70,12 +70,12 @@ def postproject(request):
             project.author = current_user
             project.save()
         return redirect('/')
-        else:
-            form = ProjectForm()
-        context = {
-            'form':form,
-        }
-        return render(request, 'createproject.html', context)
+    else:
+        form = ProjectForm()
+    context = {
+        'form':form,
+    }
+    return render(request, 'createproject.html', context)
 
 def get_project(request, id):
     project = Projects.objects.get(pk=id)

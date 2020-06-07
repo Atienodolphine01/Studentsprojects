@@ -56,3 +56,22 @@ def profile(request):
     'projects':projects,
     }
     return render(request, 'profile.html', context)
+
+
+def postproject(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.author = current_user
+            project.save()
+        return redirect('/')
+        else:
+            form = ProjectForm()
+        context = {
+            'form':form,
+        }
+        return render(request, 'createproject.html', context)
+
+

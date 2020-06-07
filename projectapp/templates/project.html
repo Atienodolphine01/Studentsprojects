@@ -1,0 +1,33 @@
+{% extends 'base.html %}
+{% load rating %}
+
+{% block content %}
+    <hr class="mt-5">
+    <div class="container content-container content">
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <img class="profile-image" src="{{ project.author.profile.image.url }}" alt="img" height="100p">
+                </div>
+                <div class="">
+                    <h2 class="account-header mb-2">{{project.author}}</h2>
+                </div>
+                <img  src="{{project.image.url}}" class=" mt-2 w-100" alt="">
+                <a href="{{project.link}}"><input class="btn btn-info mt-3" type="button" value="Visit Site"></a>
+            </div>
+            <div class="col-md-4">
+                <h1 class="ml-5">Project Title</h1>
+                <hr>
+                <h4 class="mt-3 ml-5">{{project.title}}</h4>
+                <h1 class="ml-5 mt-5">Project Description</h1>
+                <hr>
+                <h4>{{project.description}}</h4>
+                <h5>Posted ~ {{project.created_date|timesince}} ago</h5>
+            </div>
+            <div class="col-md-4 mt-5">
+                <h2>Ratings</h2>
+                {% ratings project %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

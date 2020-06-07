@@ -79,4 +79,21 @@ def get_project(request, id):
 
     return render(request, 'project.html', {'project':project})
     
-    
+
+def search_projects(request):
+    if 'post' in request.GET and request.GET['post']:
+        search_term = request.GET['post']
+        searched_projects = Projects.search_projects(search_term)
+        message = f'search_term'
+
+        context ={
+            "projects":searched_projects,
+            "message":message
+        }
+        return render(request, 'search.html', context)
+    else:
+        message = "No user has been searched"
+        context = {
+            "message":message,
+        }
+        return render(request, 'search.html', context)

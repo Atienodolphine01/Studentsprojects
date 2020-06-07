@@ -74,4 +74,9 @@ def postproject(request):
         }
         return render(request, 'createproject.html', context)
 
+def get_project(request, id):
+    project = Projects.objects.get(pk=id)
 
+    return render(request, 'project.html', {'project':project})
+    
+    

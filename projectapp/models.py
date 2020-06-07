@@ -4,43 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch  import receiver
 from django.http import Http404
 from django.utils import timezone
-# Create your models here.
 
-
-class Projects(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    image = models.ImageField(upload_to='profile_photos')
-    description = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    title = models.CharField(max_length=255)
-    link = models.URLField()
-    author_profile = models.ForeignKey(Profile, on_delete=models.CASCADE,default='1', blank=True)
-
-    def save_project(self):
-        self.save()
-
-    def __str__(self):
-        return f'{self.author}Post'
-
-    class Meta:
-        db_table = 'project'
-        ordering = [-created_date]
-
-    def delete_project(self):
-        self.delete()
-
-    @classmethod
-    def search_projects(cls,search_term):
-        project = cls.objects.filter(title__icontains=search_term)
-        return project
-
-    @classmethod
-    def get_object(cls,id):
-        try:
-            project = Projects.objects.get(pk=id)
-        except ObjectDoesNotExist:
-            raise Http404()
-        return Project
 
 
 class Profile(models.Model):
@@ -49,7 +13,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'{self.user.username}Profile'
+        return f'{self.user.username} Profile'
 
     class Meta:
         db_table = 'profile'
@@ -63,3 +27,42 @@ class Profile(models.Model):
 
     def save_profile(self):
         self.save()
+
+class Projects(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    image = models.ImageField(upload_to='profile_photos/')
+    description = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    title = models.CharField(max_length=255)
+    link = models.URLField()
+    author_profile = models.ForeignKey(Profile, on_delete=models.CASCADE, default='1', blank = True)
+
+
+    def save_project(self):
+        self.save()
+
+    def __str__(self):
+        return f'{self.author} Post'
+
+    class Meta:
+        db_table = 'project'
+        # ordering = [-created_date]
+
+
+    def delete_project(self):
+        self.delete()
+
+
+    @classmethod
+    def search_projects(cls,search_term):
+        project = cls.objects.filter(title__icontains=search_term)
+        return project
+
+
+    @classmethod
+    def get_object(cls,id):
+        try:
+            project = Projects.objects.get(pk=id)
+        except ObjectDoesNotExist:
+            raise Http404()
+        return Project

@@ -1,47 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container-full banner content">
-    <div class="overlaybanner">
-        <div class=" ml-5">
-            <a  class="text-white ml-5 pl-5 text-uppercase btn btn-outline-info" href="https://irenemercy.github.io/NaturalBeauty/"><h5>Visit Site</h5></a> 
-        </div>
-    </div>
-</div>
-<section>
-    <div class="container-fluid content mt-5">
-        <div class="container-fluid mb-5">
-            <div class="row">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4>Sites</h4>
-                    </div>
-                    <div>
-                        <h4>Mobile</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row pl-2 pr-2 ml-1 mr-1">
-                {% for project_item in projects %}
-                <div class="col-lg-4">
-                    <div class="card-deck">
-                        <div class="card">
-                            <div class="view overlay zoom">
-                                <a href="/project/{{project_item.id}}">
-                                    <img class="card-img-top" src="{{project_item.image.url}}" alt="{{ project_item.project_name }}" height="300px">
-                                    </a>
-                            </div>
-                            <div class="card-body pr-2 pl-2 pr-2 mr-2">
-                                <h4 class="card-title ml-4"> ~ {{ project_item.title }}</h4>
-                            </div>
-                            <div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body class="logout">
+    <div class="container">
+        <div class="overlaybanner">
+            <div class=" ml-5">
+                <h1 class="subhead"><span class="first-letter">A</span>bout</h1><hr>
+                <div class="about">
+                    <p>The application helps users to upload their projects and get reviews about them.</p>
+                    <p>Upload your project today and get reviews.</p>
+                </div> 
             </div>
         </div>
     </div>
-</section>
+</body>
+</html>
 {% endblock %}

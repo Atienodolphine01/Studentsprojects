@@ -1,6 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
 *{
     font-size: 20px;
+    color: #192E5B;
+    font-family: 'Oswald', sans-serif;
 }
 .profile{
    height: 150px; 
 }
+.navbar{
+    background: #192E5B;
+}
+.logout{
+    background-color: #bdd4e7;
+    background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
+    font-size: 100px; 
+}
+.first-letter {
+    font-size: 100px;
+    height: 200px;
+    font-weight: bold;
+  }
+.subhead {
+    initial-letter: 2;
+    font-size: 70px; 
+}
+.about p{
+    font-size: 70px;  
+}
+

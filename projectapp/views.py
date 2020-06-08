@@ -69,7 +69,7 @@ def profile(request):
 
 
 
-@login_required
+
 def postproject(request):
     current_user = request.user
     if request.method == 'POST':

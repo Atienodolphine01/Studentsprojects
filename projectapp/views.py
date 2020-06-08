@@ -5,6 +5,7 @@ from .forms import *
 from .serializer import *
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -16,6 +17,7 @@ def home(request):
     return render(request,'index.html', context)
 
 
+@login_required
 def updateprofile(request):
     projects = Projects.objects.all()
     posts = Profile.objects.all()
@@ -40,6 +42,8 @@ def updateprofile(request):
     return render(request, 'updateprof.html', context)
 
 
+
+@login_required
 def profile(request):
     projects = Projects.objects.all()
     posts = Profile.objects.all()
@@ -64,6 +68,8 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 
+
+@login_required
 def postproject(request):
     current_user = request.user
     if request.method == 'POST':
@@ -86,6 +92,8 @@ def get_project(request, id):
     return render(request, 'project.html', {'project':project})
     
 
+
+@login_required
 def search_projects(request):
     if 'post' in request.GET and request.GET['post']:
         search_term = request.GET['post']
@@ -119,11 +127,13 @@ def registration(request):
     }
     return render(request, 'users/register.html', context)
 
+
 class ProfileList(APIView):
     def get(self,request, format=None):
         allprofiles = Profile.objects.all()
         serializers = ProfileSerializer(allprofiles, many=True)
         return Response(serializers.data)
+
 
 
 class ProjectList(APIView):

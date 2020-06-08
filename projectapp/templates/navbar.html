@@ -12,9 +12,10 @@
     </button>
     <div class="collapse navbar-collapse" id="basicExampleNav">
         <ul class="navbar-nav mr-auto text-white">
+            {% if user.is_authenticated %}
             <div class="btn btn btn ml-5">
                 <li class="text-light">
-                    <a class="text-success ml-2" href="{% url 'profile' %}">Account</a>
+                    <a class="text-success ml-2" href="{% url 'profile' %}">Profile</a>
                 </li>
             </div>
             <div class="btn btn btn ml-5">
@@ -27,6 +28,7 @@
                     <a class="nav-link text-success" href="{% url 'newproject' %}">SUBMIT PROJECT</a>
                 </li>
             </div>
+            {% else %}
             <div class="btn btn btn">
                 <li class="nav-item">
                     <a class="nav-link text-success" href="{% url 'login' %}">Login</a>
@@ -37,6 +39,7 @@
                     <a class="nav-link text-success" href="{% url 'register' %}">Register</a>
                 </li>
             </div>
+            {% endif %}
         </ul>
         <ul class="navbar-nav">
             <div class="btn btn -md">

@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'rest_framework',
     'crispy_forms',
-    'djangoratings',
+    # 'djangoratings',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

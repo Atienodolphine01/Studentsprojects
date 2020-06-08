@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import *
 from .serializer import *
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 
@@ -124,4 +125,9 @@ class ProfileList(APIView):
         serializers = ProfileSerializer(allprofiles, many=True)
         return Response(serializers.data)
 
-        
+
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        allprojects = Projects.objects.all()
+        serializers = ProjectSerializer(allprojects, many=True)
+        return Response(serializers.data)

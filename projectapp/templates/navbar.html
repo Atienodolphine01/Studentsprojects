@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg content sticky-top">
     <div class="">
         <a class="nav-link text-dark" href="/">
-            <h1>Review</h1>
+            <h1>ProjectReview</h1>
             <span></span>
         </a>
     </div>
@@ -15,28 +15,28 @@
             {% if user.is_authenticated %}
             <div class="btn btn btn ml-5">
                 <li class="text-light">
-                    <a class="text-success ml-2" href="{% url 'profile' %}">Profile</a>
+                    <a class="text-info ml-2" href="{% url 'profile' %}">Profile</a>
                 </li>
             </div>
             <div class="btn btn btn ml-5">
                 <li>
-                    <a class="text-success ml-2" href="{% url 'home' %}">Logout</a> 
+                    <a class="text-info ml-2" href="{% url 'logout' %}">Logout</a> 
                 </li>
             </div>
             <div class=" mt-2 btn btn btn ml-2">
                 <li class="nav-item ml-2 ">
-                    <a class="nav-link text-success" href="{% url 'newproject' %}">SUBMIT PROJECT</a>
+                    <a class="nav-link text-info" href="{% url 'newproject' %}">SUBMIT PROJECT</a>
                 </li>
             </div>
             {% else %}
             <div class="btn btn btn">
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link text-info" href="{% url 'login' %}">Login</a>
                 </li>
             </div>
             <div class="btn btn btn">
                 <li class="nav-item">
-                    <a class="nav-link text-success" href="{% url 'register' %}">Register</a>
+                    <a class="nav-link text-info" href="{% url 'register' %}">Register</a>
                 </li>
             </div>
             {% endif %}
@@ -45,7 +45,7 @@
             <div class="btn btn -md">
               <form class="form-inline" action="{% url 'search' %}">
                 <div class="md-form my-0">
-                  <input class="form-control mr-sm-2 text-success" type="text" placeholder="Search" aria-label="Search" name="post">
+                  <input class="form-control mr-sm-2 text-info" type="text" placeholder="Search" aria-label="Search" name="post">
                 </div>
               </form>
             </div>

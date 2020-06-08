@@ -7,19 +7,19 @@
     <div class="media">
         <div class="col-md-12 mt-5 text-center">
             <div class="">
-                <img class="rounded-circle account-profile" src="{{ user.profile.image.url }}" alt="user">
+                <img class="rounded-circle profile" src="{{ user.profile.image.url }}" alt="user">
                 <div class="media-container">
                     <h2 class="account-header">{{user.username}}</h2>
-                    <p class="text-success">{{user.email}}</p>
+                    <p class="text-info">{{user.email}}</p>
                 </div>
                 <p>{{user.profile.bio}}</p>
-                <button type="button" class="btn btn-success" href="{% url 'updateprofile' %}">Update Profile</button>
+                <button type="submit" value="Update" class="btn btn-info" href="{% url 'updateprofile' %}">Update Profile</button>
             </div>
         </div>    
     </div>                               
     <div class="row">
         <div class="col-md-12 text-center">
-        <h2 class="text-success">Projects</h2>
+        <h2 class="text-info">Projects</h2>
         <hr>
         </div>
         {% for project in projects %}

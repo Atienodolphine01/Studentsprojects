@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block content %}
 <div class="container-full banner content">
     <div class="overlaybanner">
         <div class=" ml-5">
@@ -30,14 +31,13 @@
                                     </a>
                             </div>
                             <div class="card-body pr-2 pl-2 pr-2 mr-2">
-                                <h4>class="card-title ml-4">~ {{ project_item.title }}</h4>
+                                <h4 class="card-title ml-4"> ~ {{ project_item.title }}</h4>
                             </div>
                             <div>
 
                             </div>
                         </div>
                     </div>
-                    <!-- end of card deck  -->
                 </div>
                 {% endfor %}
             </div>

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 from .forms import *
+from .serializer import *
+from rest_framework.response import Response
 
 
 
@@ -115,3 +117,11 @@ def registration(request):
         'form':form,
     }
     return render(request, 'users/register.html', context)
+
+class ProfileList(APIView):
+    def get(self,request, format=None):
+        allprofiles = Profile.objects.all()
+        serializers = ProfileSerializer(allprofiles, many=True)
+        return Response(serializers.data)
+
+        

@@ -14,5 +14,9 @@ urlpatterns = [
     path('new-project/', views.postproject, name='newproject'),
     path('project/<id>', views.get_project, name='project'),
     path('search', views.search_projects, name='search'),
-    
+    path('api/profiles', views.ProfileList.as_view()),
+    path('api/projects', views.ProjectList.as_view()),
+    re_path(r'^ratings/', include('djangoratings.urls', namespace='ratings')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

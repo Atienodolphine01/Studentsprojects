@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
 
 
 html {
@@ -7,9 +7,9 @@ html {
 }
 
 *{
-    font-size: 30px;
+    font-size: 20px;
     color: #192E5B;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Piedra', cursive;
 }
 
 body{

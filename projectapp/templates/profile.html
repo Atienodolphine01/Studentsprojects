@@ -10,7 +10,7 @@
                 <img class="rounded-circle profile" style="border-radius: 30%;" src="{{ user.profile.image.url }}" alt="user">
                 <div class="media-container">
                     <h2 class="account-header">{{user.username}}</h2>
-                    <p class="text-info">{{user.email}}</p>
+                    <p class="text-indigo">{{user.email}}</p>
                 </div>
                 <p>{{user.profile.bio}}</p>
                 <button type="submit" value="Update" class="btn btn-info" href="{% url 'updateprofile' %}">Update Profile</button>
@@ -19,7 +19,7 @@
     </div>                               
     <div class="row">
         <div class="col-md-12 text-center">
-        <h2 class="text-info">Projects</h2>
+        <h2 class="">Projects</h2>
         <hr>
         </div>
         {% for project in projects %}

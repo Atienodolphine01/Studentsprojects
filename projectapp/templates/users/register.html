@@ -2,10 +2,10 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <div class="container content pt-5" id="register">
+  <div class="container content pt-3" id="register">
     <div class="">
       <div class="col-md-3"></div>
-      <div class="col-md-7 mt-5">
+      <div class="col-md-7 mt-3">
         <div class="card bg pl-3 pr-3 text-black">
           <form  method="post">
             {% csrf_token %}
@@ -14,7 +14,7 @@
               {{form|crispy}}
             </div>
             <div class="form-group">
-              <input type="submit" class="btn btn-outline-info"  value="SignUp">
+              <input type="submit"value="SignUp">
             </div>
           </form>
           <div class="border-bottom pt-3">

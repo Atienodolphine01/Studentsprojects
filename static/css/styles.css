@@ -1,31 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 *{
-    font-size: 20px;
+    font-size: 30px;
     color: #192E5B;
     font-family: 'Oswald', sans-serif;
 }
+
+body{
+    background-color: #bdd4e7;
+    background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
+}
+
 .profile{
    height: 150px; 
 }
+
 .navbar{
     background: #192E5B;
 }
+
 .logout{
-    background-color: #bdd4e7;
-    background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
     font-size: 100px; 
 }
+
+#register{
+    padding-bottom:20px;
+}
+
 .first-letter {
     font-size: 100px;
     height: 200px;
     font-weight: bold;
   }
+
 .subhead {
     initial-letter: 2;
     font-size: 70px; 
 }
+
 .about p{
     font-size: 70px;  
 }
 
+/* footer{
+    color: #192E5B;
+    margin-top: 150px;
+} */
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+#navbarri .navbar-nav .searchbox{
+    padding-left: 130px;
+}

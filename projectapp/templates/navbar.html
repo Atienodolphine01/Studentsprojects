@@ -1,54 +1,61 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg content sticky-top">
+<nav class="navbar navbar-expand-lg content sticky-top navbar-dark">
     <div class="">
         <a class="nav-link text-info" href="/">
             <h1>ProjectReview</h1>
             <span></span>
         </a>
     </div>
-    <button class="navbar-toggler bg-info text-white" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-    </button>
-    <div class="collapse navbar-collapse" id="basicExampleNav">
-        <ul class="navbar-nav mr-auto text-white">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarri">
+        <div class="navbar-nav">
+            <div class="searchbox">
+                <form class="form-inline"style="padding-left:330px" action="{% url 'search' %}">
+                    <input class="" type="text" placeholder="Search" aria-label="Search" name="post">
+                    <button type="submit" style="border: none; background-color: white"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div> 
+
+        <ul class="navbar-nav  text-info"style="padding-left:330px">
             {% if user.is_authenticated %}
-            <div class="btn btn btn ml-5">
-                <li class="text-light">
-                    <a class="text-info ml-2" href="{% url 'profile' %}">Profile</a>
-                </li>
-            </div>
-            <div class="btn btn btn ml-5">
-                <li>
-                    <a class="text-info ml-2" href="{% url 'logout' %}">Logout</a> 
-                </li>
-            </div>
-            <div class=" mt-2 btn btn btn ml-2">
+            <div class=" mt-2 ml-2">
                 <li class="nav-item ml-2 ">
-                    <a class="nav-link text-info" href="{% url 'newproject' %}">SUBMIT PROJECT</a>
+                    <a class="nav text-info" href="{% url 'newproject' %}">Submit Project</a>
                 </li>
             </div>
+            <li class="nav-item dropdown" style="padding-left:30px">
+                <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  {{user}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'profile' %}"> Profile</a>
+                  <a class="dropdown-item" href="/api/projects/"> Projects API</a>
+                  <a class="dropdown-item" href="/api/profiles/"> Profile API</a>
+                  <a class="dropdown-item" href="/admin"> Admin</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </li>
             {% else %}
-            <div class="btn btn btn">
+            <div class="">
                 <li class="nav-item">
                     <a class="nav-link text-info" href="{% url 'login' %}">Login</a>
                 </li>
             </div>
-            <div class="btn btn btn">
+            <div class="">
                 <li class="nav-item">
                     <a class="nav-link text-info" href="{% url 'register' %}">Register</a>
                 </li>
             </div>
             {% endif %}
         </ul>
-        <ul class="navbar-nav">
-            <div class="btn btn -md">
-              <form class="form-inline" action="{% url 'search' %}">
-                <div class="md-form my-0">
-                  <input class="form-control mr-sm-2 text-info" type="text" placeholder="Search" aria-label="Search" name="post">
-                </div>
-              </form>
-            </div>
-          </ul>
+
     </div>
 </nav>
